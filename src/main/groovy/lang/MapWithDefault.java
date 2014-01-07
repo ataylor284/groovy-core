@@ -33,6 +33,7 @@ public final class MapWithDefault<K, V> implements Map<K, V> {
     private MapWithDefault(Map<K, V> m, Closure initClosure) {
         delegate = m;
         this.initClosure = initClosure;
+        this.initClosure.setDelegate(this);
     }
 
     public static <K, V> Map<K, V> newInstance(Map<K, V> m, Closure initClosure) {
